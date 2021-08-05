@@ -25,7 +25,6 @@ public class UsuarioRequest {
     }
 
     public Usuario toUsuario() {
-        login = "";
         return new Usuario(this.login, new SenhaLimpa(this.senha));
     }
 }
