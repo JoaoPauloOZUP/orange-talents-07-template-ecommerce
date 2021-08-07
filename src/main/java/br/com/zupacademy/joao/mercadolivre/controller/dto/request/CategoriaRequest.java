@@ -2,7 +2,7 @@ package br.com.zupacademy.joao.mercadolivre.controller.dto.request;
 
 import br.com.zupacademy.joao.mercadolivre.model.Categoria;
 import br.com.zupacademy.joao.mercadolivre.validator.existvalues.categoria.ExistSuperCategoriaValue;
-import br.com.zupacademy.joao.mercadolivre.validator.uniquevalue.UniqueValue;
+import br.com.zupacademy.joao.mercadolivre.validator.uniquevalue.generico.UniqueValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.EntityManager;

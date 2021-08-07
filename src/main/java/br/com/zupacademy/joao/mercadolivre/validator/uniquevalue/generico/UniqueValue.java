@@ -1,4 +1,4 @@
-package br.com.zupacademy.joao.mercadolivre.validator.uniquevalue;
+package br.com.zupacademy.joao.mercadolivre.validator.uniquevalue.generico;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

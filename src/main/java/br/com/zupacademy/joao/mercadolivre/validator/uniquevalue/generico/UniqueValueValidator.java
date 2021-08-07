@@ -1,4 +1,4 @@
-package br.com.zupacademy.joao.mercadolivre.validator.uniquevalue;
+package br.com.zupacademy.joao.mercadolivre.validator.uniquevalue.generico;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
