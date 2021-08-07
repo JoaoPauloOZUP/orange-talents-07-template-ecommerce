@@ -1,4 +1,4 @@
-package br.com.zupacademy.joao.mercadolivre.validator.existvalues;
+package br.com.zupacademy.joao.mercadolivre.validator.existvalues.categoria;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

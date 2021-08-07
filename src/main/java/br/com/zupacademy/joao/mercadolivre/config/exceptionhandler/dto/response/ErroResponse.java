@@ -1,4 +1,4 @@
-package br.com.zupacademy.joao.mercadolivre.config.dto.response;
+package br.com.zupacademy.joao.mercadolivre.config.exceptionhandler.dto.response;
 
 public class ErroResponse {
 

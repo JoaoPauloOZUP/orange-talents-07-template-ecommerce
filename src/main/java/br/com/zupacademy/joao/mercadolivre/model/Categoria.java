@@ -14,6 +14,7 @@ public class Categoria {
     private Long id;
 
     @NotBlank
+    @Column(unique = true) // Garanto que existirá apenas 1 e somente 1 categoria
     private String nome;
 
     @ManyToOne(cascade = CascadeType.MERGE)

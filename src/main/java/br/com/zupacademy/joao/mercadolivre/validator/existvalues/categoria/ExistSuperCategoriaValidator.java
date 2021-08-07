@@ -1,4 +1,4 @@
-package br.com.zupacademy.joao.mercadolivre.validator.existvalues;
+package br.com.zupacademy.joao.mercadolivre.validator.existvalues.categoria;
 
 import br.com.zupacademy.joao.mercadolivre.model.Categoria;
 import br.com.zupacademy.joao.mercadolivre.repository.CategoriaRepository;
