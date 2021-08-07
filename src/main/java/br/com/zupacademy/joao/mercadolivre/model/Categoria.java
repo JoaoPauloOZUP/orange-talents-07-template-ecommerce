@@ -17,7 +17,7 @@ public class Categoria {
     @Column(unique = true) // Garanto que existirá apenas 1 e somente 1 categoria
     private String nome;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     private Categoria superCategoria;
 
     @Deprecated
