@@ -24,7 +24,7 @@ public class ExceptionValidationHandler {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({MethodArgumentNotValidException.class, RuntimeException.class})
+    @ExceptionHandler({MethodArgumentNotValidException.class})
     public List<?> handler(MethodArgumentNotValidException exception) {
         List<ErroResponse> erroResponse = new ArrayList<>();
         List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();

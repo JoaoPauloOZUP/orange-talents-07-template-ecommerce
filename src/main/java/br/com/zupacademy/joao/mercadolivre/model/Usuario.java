@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.Instant;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Usuario {
@@ -54,5 +55,19 @@ public class Usuario {
 
     public String getSenha() {
         return senha;
+    }
+
+    // Utilizo para comparação de usuários quando fazer inserções. Por este motivo foi criado!
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return id.equals(usuario.id) && login.equals(usuario.login) && senha.equals(usuario.senha) && instant.equals(usuario.instant);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, login, senha, instant);
     }
 }

@@ -37,7 +37,13 @@ public class Produto {
     @ManyToOne @NotNull
     private Usuario donoDoProduto;
 
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "produto")
+    private Set<ImagemProduto> images = new HashSet<>();
+
     private Instant dataCriacao = Instant.now();
+
+    @Deprecated
+    protected Produto() {}
 
     public Produto(@NotBlank String nome,
                    @Positive @NotBlank Double preco,
@@ -54,5 +60,18 @@ public class Produto {
         this.descricao = descricao;
         this.categoria = categoria;
         this.donoDoProduto = donoDoProduto;
+    }
+
+    public Usuario getDonoDoProduto() {
+        return donoDoProduto;
+    }
+
+    // Inseri as imagens ao produto X e recebe um Set de imagem de ImagemRequest.
+    public void inserirImagens(Set<ImagemProduto> images) {
+        this.images = images;
+    }
+
+    public boolean perceAoUsuarioLogado(Usuario usuario){
+        return this.donoDoProduto.equals(usuario);
     }
 }
