@@ -1,6 +1,6 @@
 package br.com.zupacademy.joao.mercadolivre.controller.dto.request;
 
-import br.com.zupacademy.joao.mercadolivre.controller.utility.SenhaLimpa;
+import br.com.zupacademy.joao.mercadolivre.controller.utility.senha.SenhaLimpa;
 import br.com.zupacademy.joao.mercadolivre.model.Usuario;
 import br.com.zupacademy.joao.mercadolivre.validator.uniquevalue.generico.UniqueValue;
 

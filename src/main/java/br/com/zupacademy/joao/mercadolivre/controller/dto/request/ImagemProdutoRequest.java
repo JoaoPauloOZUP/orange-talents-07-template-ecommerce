@@ -1,6 +1,6 @@
 package br.com.zupacademy.joao.mercadolivre.controller.dto.request;
 
-import br.com.zupacademy.joao.mercadolivre.controller.utility.EnviarImagem;
+import br.com.zupacademy.joao.mercadolivre.controller.utility.upload.EnviarImagem;
 import br.com.zupacademy.joao.mercadolivre.model.ImagemProduto;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,11 +17,6 @@ public class ImagemProdutoRequest {
     @NotNull(message = "Deve conter no mínimo uma imagem")
     List<MultipartFile> images;
 
-    @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
-    public ImagemProdutoRequest(List<MultipartFile> images) {
-        this.images = images;
-    }
-
     /**
      * O método setImagem se faz nescessário pois a requisição não pelo o corpo e sim por um forms.
      * */
@@ -29,7 +24,7 @@ public class ImagemProdutoRequest {
         this.images = images;
     }
 
-    public Set<String> produtoComImagem(EnviarImagem enviar) {
+    public Set<String> linksImagens(EnviarImagem enviar) {
         Set<ImagemProduto> imagemProdutos = new HashSet<>();
         Set<String> links = enviar.upload(this.images);
 

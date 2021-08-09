@@ -1,6 +1,7 @@
 package br.com.zupacademy.joao.mercadolivre.model;
 
 import br.com.zupacademy.joao.mercadolivre.controller.dto.request.CaracteristicaRequest;
+import br.com.zupacademy.joao.mercadolivre.controller.dto.request.OpiniaoRequest;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -27,7 +28,7 @@ public class Produto {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "produto") @NotNull
     private Set<Caracteristica> caracteristicas = new HashSet<>();
 
-    @NotBlank @Size(max = 1000)
+    @NotBlank
     @Column(length = 1000)
     private String descricao;
 

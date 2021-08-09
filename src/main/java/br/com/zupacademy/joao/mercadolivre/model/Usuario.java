@@ -1,15 +1,12 @@
 package br.com.zupacademy.joao.mercadolivre.model;
 
-import br.com.zupacademy.joao.mercadolivre.controller.utility.SenhaLimpa;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import br.com.zupacademy.joao.mercadolivre.controller.utility.senha.SenhaLimpa;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.Instant;
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity

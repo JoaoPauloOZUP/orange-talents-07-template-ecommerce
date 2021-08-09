@@ -2,7 +2,7 @@ package br.com.zupacademy.joao.mercadolivre.controller;
 
 import br.com.zupacademy.joao.mercadolivre.controller.dto.request.ImagemProdutoRequest;
 import br.com.zupacademy.joao.mercadolivre.controller.dto.request.ProdutoRequest;
-import br.com.zupacademy.joao.mercadolivre.controller.utility.EnviarImagem;
+import br.com.zupacademy.joao.mercadolivre.controller.utility.upload.EnviarImagem;
 import br.com.zupacademy.joao.mercadolivre.model.Produto;
 import br.com.zupacademy.joao.mercadolivre.model.Usuario;
 import br.com.zupacademy.joao.mercadolivre.model.UsuarioLogado;
@@ -56,7 +56,7 @@ public class ProdutoController {
 
     @PostMapping(value = "/{id}/imagem")
     @Transactional
-    public void inserirImagem(@PathVariable("id") Long idDoProduto, @Valid ImagemProdutoRequest request) {
+    public ResponseEntity<?> inserirImagem(@PathVariable("id") Long idDoProduto, @Valid ImagemProdutoRequest request) {
         UsuarioLogado logado = (UsuarioLogado) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         Produto produto = manager.find(Produto.class, idDoProduto);
@@ -66,8 +66,10 @@ public class ProdutoController {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         }
 
-        produto.inserirImagens(request.produtoComImagem(enviaImagem));
+        produto.inserirImagens(request.linksImagens(enviaImagem));
 
         manager.merge(produto);
+
+        return ResponseEntity.ok().build();
     }
 }

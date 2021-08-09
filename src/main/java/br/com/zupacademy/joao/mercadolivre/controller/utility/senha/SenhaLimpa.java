@@ -1,4 +1,4 @@
-package br.com.zupacademy.joao.mercadolivre.controller.utility;
+package br.com.zupacademy.joao.mercadolivre.controller.utility.senha;
 
 import br.com.zupacademy.joao.mercadolivre.model.Usuario;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
