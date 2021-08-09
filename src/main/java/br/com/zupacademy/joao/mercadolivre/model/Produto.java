@@ -67,8 +67,10 @@ public class Produto {
     }
 
     // Inseri as imagens ao produto X e recebe um Set de imagem de ImagemRequest.
-    public void inserirImagens(Set<ImagemProduto> images) {
-        this.images = images;
+    public void inserirImagens(Set<String> links) {
+        Set<ImagemProduto> imagemProdutos = new HashSet<>();
+        links.forEach(link -> imagemProdutos.add(new ImagemProduto(link, this)));
+        this.images = imagemProdutos;
     }
 
     public boolean perceAoUsuarioLogado(Usuario usuario){

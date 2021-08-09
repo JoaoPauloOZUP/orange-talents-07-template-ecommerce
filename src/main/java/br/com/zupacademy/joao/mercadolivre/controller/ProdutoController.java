@@ -18,7 +18,6 @@ import org.springframework.web.server.ResponseStatusException;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
-import java.nio.channels.ReadPendingException;
 
 @RestController
 @RequestMapping("/produto")
@@ -58,8 +57,17 @@ public class ProdutoController {
     @PostMapping(value = "/{id}/imagem")
     @Transactional
     public void inserirImagem(@PathVariable("id") Long idDoProduto, @Valid ImagemProdutoRequest request) {
-        // Diferente do Alberto, utilizo a classe de iamgem produto para fazer o "trabalho árduo"
-        Produto produto = request.produtoComImagem(enviaImagem, manager, idDoProduto, repository);
+        UsuarioLogado logado = (UsuarioLogado) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Produto produto = manager.find(Produto.class, idDoProduto);
+        Usuario usuario = repository.findByLogin(logado.getUsername()).get();
+
+        if(!produto.perceAoUsuarioLogado(usuario)){
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
+
+        produto.inserirImagens(request.produtoComImagem(enviaImagem));
+
         manager.merge(produto);
     }
 }

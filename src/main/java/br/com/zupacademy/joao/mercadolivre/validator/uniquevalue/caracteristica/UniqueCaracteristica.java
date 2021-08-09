@@ -10,6 +10,7 @@ public class UniqueCaracteristica implements Validator {
         return ProdutoRequest.class.isAssignableFrom(clazz);
     }
 
+    // Poderia ter criado uma anotação. O yuri me deu um feedback.
     @Override
     public void validate(Object target, Errors errors) {
         if(errors.hasErrors()) {
