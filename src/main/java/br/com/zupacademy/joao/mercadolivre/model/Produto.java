@@ -1,7 +1,6 @@
 package br.com.zupacademy.joao.mercadolivre.model;
 
 import br.com.zupacademy.joao.mercadolivre.controller.dto.request.CaracteristicaRequest;
-import br.com.zupacademy.joao.mercadolivre.controller.dto.request.OpiniaoRequest;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -61,6 +60,42 @@ public class Produto {
         this.descricao = descricao;
         this.categoria = categoria;
         this.donoDoProduto = donoDoProduto;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public Long getQuantidade() {
+        return quantidade;
+    }
+
+    public Set<Caracteristica> getCaracteristicas() {
+        return caracteristicas;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public Set<ImagemProduto> getImages() {
+        return images;
+    }
+
+    public Instant getDataCriacao() {
+        return dataCriacao;
     }
 
     public Usuario getDonoDoProduto() {

@@ -20,6 +20,9 @@ public class Caracteristica {
     @ManyToOne
     private Produto produto;
 
+    @Deprecated
+    protected Caracteristica() {}
+
     public Caracteristica(@NotBlank String nome,
                           @NotBlank String descricao,
                           @NotNull Produto produto) {
@@ -27,6 +30,18 @@ public class Caracteristica {
         this.nome = nome;
         this.descricao = descricao;
         this.produto = produto;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
     }
 
     @Override

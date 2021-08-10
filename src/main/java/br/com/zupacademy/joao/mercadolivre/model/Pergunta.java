@@ -38,7 +38,15 @@ public class Pergunta {
         this.usuario = usuario;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getTitulo() {
         return titulo;
+    }
+
+    public Instant getDataCriacao() {
+        return dataCriacao;
     }
 }

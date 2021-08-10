@@ -28,6 +28,14 @@ public class ImagemProduto {
         this.produto = produto;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
     // Como utilizo um Set de imagemProduto, preciso do equals para comparação.
     @Override
     public boolean equals(Object o) {
