@@ -42,6 +42,6 @@ public class ProdutoDetalhadoController {
             return ResponseEntity.ok(response);
         }
 
-        return ResponseEntity.badRequest().build();
+        return ResponseEntity.notFound().build();
     }
 }

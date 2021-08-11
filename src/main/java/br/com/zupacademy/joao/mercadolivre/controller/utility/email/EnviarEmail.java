@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class EnviarEmail implements Disparador {
     @Override
-    public void enviar(String caminho, String titulo) {
+    public void enviar(String caminho, String mensagem) {
         System.out.println("Email enviado para: "+caminho);
-        System.out.println("Pergunta: "+titulo);
+        System.out.println("Mensagem: "+mensagem);
     }
 }

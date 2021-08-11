@@ -1,6 +1,9 @@
 package br.com.zupacademy.joao.mercadolivre.model;
 
 import br.com.zupacademy.joao.mercadolivre.controller.dto.request.CaracteristicaRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.util.Assert;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -111,5 +114,16 @@ public class Produto {
 
     public boolean perceAoUsuarioLogado(Usuario usuario){
         return this.donoDoProduto.equals(usuario);
+    }
+
+    public boolean abaterEstoque(@Positive Long quantidade) {
+        Assert.isTrue(quantidade > 0, "A quantidade deve ser maior que 0");
+
+        if(this.quantidade >= quantidade) {
+            this.quantidade -= quantidade;
+            return true;
+        }
+
+        return false;
     }
 }
