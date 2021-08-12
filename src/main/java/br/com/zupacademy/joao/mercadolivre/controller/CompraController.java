@@ -1,6 +1,7 @@
 package br.com.zupacademy.joao.mercadolivre.controller;
 
 import br.com.zupacademy.joao.mercadolivre.controller.dto.request.CompraRequest;
+import br.com.zupacademy.joao.mercadolivre.controller.dto.response.CompraResponse;
 import br.com.zupacademy.joao.mercadolivre.controller.utility.email.Disparador;
 import br.com.zupacademy.joao.mercadolivre.model.Compra;
 import br.com.zupacademy.joao.mercadolivre.model.Produto;
